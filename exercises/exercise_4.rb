@@ -18,12 +18,8 @@ yaletown = Store.create :name => 'Yaletown', :annual_revenue => 430000, :mens_ap
   puts "Store Name: #{s.name}, Annual Revenue: #{s.annual_revenue}"
 end
 
-@womens_stores = Store.where(womens_apparel: true)
+@womens_stores = Store.where(womens_apparel: true).where('annual_revenue < 1000000')
 
-less_then_1mil = @womens_stores.select do |s|
-  s.annual_revenue < 1000000 
-end
-
-less_then_1mil.each do |s|
+@womens_stores.each do |s|
   puts "Store Name: #{s.name}, Annual Revenue: #{s.annual_revenue}"
 end
