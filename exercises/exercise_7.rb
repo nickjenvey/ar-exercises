@@ -10,3 +10,9 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+
+puts "Enter a new store name"
+
+@storename = gets.chomp
+
+Store.create :name => @storename
